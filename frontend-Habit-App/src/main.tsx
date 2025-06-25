@@ -10,5 +10,5 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider
       router={createBrowserRouter(enrutador)}/>
-  </StrictMode>,
+  </StrictMode>
 )
