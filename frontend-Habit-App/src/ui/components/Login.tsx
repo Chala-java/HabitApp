@@ -4,7 +4,6 @@ import './Login.css';
 
 export default function Login() {
   return (
-    <div className='container pt-3 vh-100 bg-light'>
       <div className="login-contenedor mx-auto my-auto d-flex flex-column align-items-center justify-content-center">
         <div className="row text-center">
         <img src={Logo} alt="logo" className="mx-auto" />
@@ -33,7 +32,7 @@ export default function Login() {
                 <i className="bi bi-google text-danger"> Google</i>
                 <i className="bi bi-facebook text-primary"> Facebook</i>
                 </div>
-                <div className='registrate d-flex flex-row'>
+                <div className='registrate d-flex flex-row gap-1'>
                 <p>¿Eres nuevo/a? </p>
                 <p className='text-primary'> Registrate ahora</p>
                 </div>
@@ -41,6 +40,5 @@ export default function Login() {
             </form>
         </div>
     </div>
-</div>
   )
 }

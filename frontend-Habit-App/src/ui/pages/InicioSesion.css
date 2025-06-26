@@ -1,0 +1,10 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+.bg-login{
+    background-color:lightgrey;
+    padding-top: 15px;
+    height: 100vh;
+}
