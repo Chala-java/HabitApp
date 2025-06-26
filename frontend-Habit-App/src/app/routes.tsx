@@ -1,8 +1,13 @@
-import Login from "../ui/components/Login";
+import Roles from "../ui/components/Roles";
+import InicioSesión from "../ui/pages/InicioSesion";
 
 export let enrutador = [
   {
     path: "/",
-    element:<Login />
+    element:<InicioSesión/>
+  },
+  {
+    path: "/Roles",
+    element:<Roles/>
   }
 ]
