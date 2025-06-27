@@ -1,4 +1,4 @@
-package com.example.backend_Habit_App.domain.models;
+package com.example.backend_Habit_App.domain.model;
 
 import jakarta.persistence.*;
 
@@ -6,45 +6,66 @@ import jakarta.persistence.*;
 public abstract class UsuarioBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected  Integer id;
+    protected  Long id;
 
-    @Column(name = "correo_base", nullable = false )
-    protected Integer correo;
-
-    @Column(name = "contrasena_base", nullable = false)
-    protected Integer contrasena;
+    @Column(name = "correo", length = 200, nullable = false )
+    protected String correo;
+    @Column(name = "telefono", length = 20, nullable = false)
+    private String telefono;
+    @Column(name = "cedula",nullable = false)
+    private Long cedula;
+    @Column(name = "contrasena", length = 100, nullable = false)
+    protected String contrasena;
 
     public  UsuarioBase(){
 
     }
 
-    public UsuarioBase(Integer id, Integer correo, Integer contrasena) {
+    public UsuarioBase(Long id, String correo, String telefono, Long cedula, String contrasena) {
         this.id = id;
         this.correo = correo;
+        this.telefono = telefono;
+        this.cedula = cedula;
         this.contrasena = contrasena;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getCorreo() {
+    public String getCorreo() {
         return correo;
     }
 
-    public void setCorreo(Integer correo) {
+    public void setCorreo(String correo) {
         this.correo = correo;
     }
 
-    public Integer getContrasena() {
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public Long getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Long cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getContrasena() {
         return contrasena;
     }
 
-    public void setContrasena(Integer contrasena) {
+    public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
 }
