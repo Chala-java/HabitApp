@@ -1,18 +1,13 @@
-import { Registro } from "../ui/components/Registro";
-import Roles from "../ui/components/Roles";
 import InicioSesión from "../ui/pages/InicioSesion";
+import TipoCuenta from "../ui/pages/TipoCuenta";
 
-export let enrutador = [
+export const enrutador = [
   {
     path: "/",
     element:<InicioSesión/>
   },
   {
     path: "/Roles",
-    element:<Roles/>
-  },
-  {
-    path:"/Registro",
-    element:<Registro/>
+    element:<TipoCuenta/>
   }
 ]
