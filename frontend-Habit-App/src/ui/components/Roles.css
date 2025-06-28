@@ -13,12 +13,30 @@ body{
 .contenedor{
     width: 60%;
     height: 600px;
-    border: solid 1px black;
+    border: solid 1px rgb(209, 208, 208);
     margin: auto;
     margin-top:10%;
 }
 .card-roles{
-    width:30%;
-    height:169px;
-    border:solid 1px grey;
+    width:25%;
+    height:132px;
+    border:solid 1px rgb(209, 208, 208);
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 5px;
+}
+i{
+    font-family: "Inter", sans-serif;
+}
+.btn-roles{
+    min-width:195px;
+    height: 50px;
+    background-color: #88CC00;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top:51px;
+    margin-bottom:22px;
 }

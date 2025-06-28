@@ -1,5 +1,5 @@
-import Roles from "../ui/components/Roles";
 import InicioSesión from "../ui/pages/InicioSesion";
+import TipoCuenta from "../ui/pages/TipoCuenta";
 
 export let enrutador = [
   {
@@ -8,6 +8,6 @@ export let enrutador = [
   },
   {
     path: "/Roles",
-    element:<Roles/>
+    element:<TipoCuenta/>
   }
 ]
