@@ -1,7 +1,7 @@
 import InicioSesión from "../ui/pages/InicioSesion";
 import TipoCuenta from "../ui/pages/TipoCuenta";
 
-export let enrutador = [
+export const enrutador = [
   {
     path: "/",
     element:<InicioSesión/>
