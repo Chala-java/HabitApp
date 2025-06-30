@@ -17,7 +17,7 @@ export default function Login() {
                     <label htmlFor="username">Correo</label>
                     <input className='input' type="email" id="email" name="email" placeholder=' juan@gmail.com' required />
                 </div>
-                <div className='row'>
+                <div className='row align-items-start text-start'>
                     <label htmlFor="password">Contraseña</label>
                     <input className='input' type="password" id="password" name="password" placeholder=' ******' required />
                 </div>

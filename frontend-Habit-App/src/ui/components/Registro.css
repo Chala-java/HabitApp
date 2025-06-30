@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+
+.login{
+    background-color: #F0F0F0;
+}
+
+
+
+.texto-logo img {
+  width: 50px;
+  height: 40px;
+}
+
+.sombra {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+.input-personalizado {
+     background-color: #F5F5F5 !important;
+  border: transparent;
+}
+
+.eeee {
+  text-align: left !important;
+  display: block;
+}
+.eeee {
+  text-align: left !important;
+  display: block;
+}
