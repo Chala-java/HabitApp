@@ -26,6 +26,7 @@ public class PropietarioController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error.getMessage());
         }
     }
+
 @GetMapping
     public ResponseEntity<?> buscarTodosPropietarios (){
         try {
@@ -36,7 +37,7 @@ public class PropietarioController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error.getMessage());
         }
     }
-@GetMapping("/id")
+@GetMapping("/{id}")
     public ResponseEntity<?> BuscarPropietariosPorID(@PathVariable Long id){
         try {
             return ResponseEntity
@@ -47,7 +48,7 @@ public class PropietarioController {
         }
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarPropietariosPorID(@PathVariable Long id){
         try {
             return ResponseEntity
@@ -83,4 +84,5 @@ public class PropietarioController {
                     .body(error.getMessage());
         }
     }
+
 }

@@ -24,8 +24,8 @@ public class Propietario extends UsuarioBase {
         this.metodo_pago = metodo_pago;
     }
 
-    public Propietario(Long id, String correo, String telefono, Long cedula, String contrasena, long numero_cuenta, String metodo_pago) {
-        super(id, correo, telefono, cedula, contrasena);
+    public Propietario(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, String contrasena, long numero_cuenta, String metodo_pago) {
+        super(id, nombre, apellido, correo, telefono, cedula, contrasena);
         this.numero_cuenta = numero_cuenta;
         this.metodo_pago = metodo_pago;
     }
@@ -45,5 +45,4 @@ public class Propietario extends UsuarioBase {
     public void setMetodo_pago(String metodo_pago) {
         this.metodo_pago = metodo_pago;
     }
-
 }

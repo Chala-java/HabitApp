@@ -1,7 +1,8 @@
 package com.example.backend_Habit_App.domain.application.dto;
 
 public class RegistroPropietarioDTO {
-
+    private String nombre;
+    private String apellido;
     private String correo;
     private String telefono;
     private Long cedula;
@@ -9,17 +10,35 @@ public class RegistroPropietarioDTO {
     private String metodo_pago;
     private String contrasena;
 
-    public RegistroPropietarioDTO(){
+    public RegistroPropietarioDTO() {
 
     }
 
-    public RegistroPropietarioDTO(String correo, String telefono, Long cedula, long numero_cuenta, String metodo_pago, String contrasena) {
+    public RegistroPropietarioDTO(String nombre, String apellido, String correo, String telefono, Long cedula, long numero_cuenta, String metodo_pago, String contrasena) {
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.correo = correo;
         this.telefono = telefono;
         this.cedula = cedula;
         this.numero_cuenta = numero_cuenta;
         this.metodo_pago = metodo_pago;
         this.contrasena = contrasena;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCorreo() {

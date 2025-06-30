@@ -63,8 +63,9 @@ public class PropietarioServiceImpl  implements PropietarioService{
     public PropietarioDTO modificarPropietarioPorID(Long id , PropietarioDTO datosPropietario) throws Exception {
         Optional<Propietario> resultado = repository.findById(id);
         if (resultado.isPresent()) {
-
             Propietario propietario = resultado.get();
+            propietario.setNombre(datosPropietario.getNombre());
+            propietario.setApellido(datosPropietario.getApellido());
             propietario.setMetodo_pago(datosPropietario.getMetodo_pago());
             propietario.setCedula(datosPropietario.getCedula());
             propietario.setNumero_cuenta(datosPropietario.getNumero_cuenta());
@@ -94,9 +95,6 @@ public class PropietarioServiceImpl  implements PropietarioService{
             throw new Exception("Usuario no encontrado con correo"+iniciarSesionDTO.getCorreo());
         }
     }
-
-
-
 
 
 

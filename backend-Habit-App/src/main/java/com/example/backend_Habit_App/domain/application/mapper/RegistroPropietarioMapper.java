@@ -10,6 +10,8 @@ public class RegistroPropietarioMapper {
         return new Propietario(
                 null,
                 dto.getCorreo(),
+                dto.getNombre(),
+                dto.getApellido(),
                 dto.getTelefono(),
                 dto.getCedula(),
                 dto.getContrasena(),

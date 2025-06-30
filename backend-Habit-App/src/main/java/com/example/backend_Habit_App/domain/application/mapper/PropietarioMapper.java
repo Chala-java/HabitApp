@@ -8,6 +8,8 @@ public class PropietarioMapper {
 
         return new Propietario(
                 dto.getId(),
+                dto.getNombre(),
+                dto.getApellido(),
                 dto.getCorreo(),
                 dto.getTelefono(),
                 dto.getCedula(),
@@ -21,6 +23,8 @@ public class PropietarioMapper {
 
         return  new PropietarioDTO(
                 propietario.getId(),
+                propietario.getNombre(),
+                propietario.getApellido(),
                 propietario.getCorreo(),
                 propietario.getTelefono(),
                 propietario.getCedula(),

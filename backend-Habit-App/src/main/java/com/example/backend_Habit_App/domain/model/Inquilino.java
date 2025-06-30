@@ -7,11 +7,6 @@ import jakarta.persistence.Table;
 @Table(name = "inquilino")
 
 public class Inquilino extends UsuarioBase {
-    public Inquilino(){
-        super();
-    }
 
-
-
-
+    
 }

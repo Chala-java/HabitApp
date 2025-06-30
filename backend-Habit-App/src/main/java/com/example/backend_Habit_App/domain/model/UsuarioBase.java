@@ -7,7 +7,10 @@ public abstract class UsuarioBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected  Long id;
-
+    @Column(name = "nombre", length = 100, nullable = false)
+    private String nombre;
+    @Column(name = "apellido", length = 100, nullable = false)
+    private String apellido;
     @Column(name = "correo", length = 200, nullable = false )
     protected String correo;
     @Column(name = "telefono", length = 20, nullable = false)
@@ -21,8 +24,10 @@ public abstract class UsuarioBase {
 
     }
 
-    public UsuarioBase(Long id, String correo, String telefono, Long cedula, String contrasena) {
+    public UsuarioBase(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, String contrasena) {
         this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.correo = correo;
         this.telefono = telefono;
         this.cedula = cedula;
@@ -35,6 +40,22 @@ public abstract class UsuarioBase {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCorreo() {
