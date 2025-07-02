@@ -79,7 +79,6 @@ public class PropietarioServiceImpl  implements PropietarioService{
     }
 
 
-
     //Iniciar Sesion Propietario
     public PropietarioDTO iniciarSesion(IniciarSesionDTO iniciarSesionDTO) throws Exception {
         Optional<Propietario> resultado = repository.findByCorreo(iniciarSesionDTO.getCorreo());

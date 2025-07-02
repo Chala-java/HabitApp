@@ -17,7 +17,7 @@ public class PropietarioController {
     @Autowired
     PropietarioService service;
 
-    @PostMapping("/registro")
+    @PostMapping
     public ResponseEntity<?> save(@RequestBody RegistroPropietarioDTO requestData){
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
