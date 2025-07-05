@@ -2,6 +2,7 @@ package com.example.backend_Habit_App.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,6 +15,8 @@ public class Propietario extends UsuarioBase {
     @Column(name = "metodo_pago", length = 20, nullable = false)
     private String metodo_pago;
 
+    @OneToOne(mappedBy = "propietario")
+    private Contrato contrato;
 
     public Propietario(){
 
