@@ -5,10 +5,13 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
+@Table(name = "edificio")
 public class Edificio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "edificio_id")
     protected Long id;
     @Column(name="nombre")
     private String nombre;

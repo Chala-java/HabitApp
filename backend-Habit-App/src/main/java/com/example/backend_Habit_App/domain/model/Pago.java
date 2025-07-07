@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "pago")
 public class Pago {
 
     @Id
@@ -20,6 +22,6 @@ public class Pago {
     private PagoEnum estadoValidacion;
 
     @ManyToOne
-    @JoinColumn(name="fk_contrato", referencedColumnName = "id_contrato")
+    @JoinColumn(name="fk_contrato", referencedColumnName = "contrato_id")
     @JsonBackReference Contrato contrato;
 }
