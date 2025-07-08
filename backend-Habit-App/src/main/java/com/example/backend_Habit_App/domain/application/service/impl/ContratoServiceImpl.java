@@ -32,6 +32,7 @@ public class ContratoServiceImpl implements ContratoService {
     ApartamentoRepository apartamentoRepository;
 
     public ContratoDTO crearContrato(CrearContratoDTO dto) throws Exception {
+        //Primero se verifica que propietario, inquilino y apartamento existan
         Propietario propietario = propietarioRepository.findById(dto.getIdPropietario())
                 .orElseThrow(() -> new Exception("propietario no encontrado"));
         Inquilino inquilino = inquilinoRepository.findById(dto.getIdInquilino())
@@ -47,6 +48,7 @@ public class ContratoServiceImpl implements ContratoService {
     }
 
     public List<ContratoDTO> listarContratos() {
+        //Listamos los contratos 
         List<Contrato> contrato = contratoRepository.findAll();
         List<ContratoDTO> resultado = new ArrayList<>();
         for (Contrato p : contrato) {
