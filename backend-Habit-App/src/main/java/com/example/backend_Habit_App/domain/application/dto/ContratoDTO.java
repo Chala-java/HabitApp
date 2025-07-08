@@ -1,12 +1,7 @@
 package com.example.backend_Habit_App.domain.application.dto;
 
-
-
 import com.example.backend_Habit_App.domain.model.ApartamentoEnum;
-import jakarta.persistence.Column;
-
 import java.time.LocalDate;
-import java.util.List;
 
 public class ContratoDTO {
 
