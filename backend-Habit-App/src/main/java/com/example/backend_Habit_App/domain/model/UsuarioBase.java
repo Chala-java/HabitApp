@@ -6,12 +6,13 @@ import jakarta.persistence.*;
 public abstract class UsuarioBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     protected  Long id;
     @Column(name = "nombre", length = 100, nullable = false)
     private String nombre;
     @Column(name = "apellido", length = 100, nullable = false)
     private String apellido;
-    @Column(name = "correo", length = 200, nullable = false )
+
     protected String correo;
     @Column(name = "telefono", length = 20, nullable = false)
     private String telefono;

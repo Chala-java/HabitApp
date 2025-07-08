@@ -1,7 +1,5 @@
 package com.example.backend_Habit_App.domain.application.dto;
 
-import com.example.backend_Habit_App.domain.model.Administrador;
-
 public class AdministradorDTO {
 
     private Long id;
