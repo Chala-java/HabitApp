@@ -1,43 +1,29 @@
-package com.example.backend_Habit_App.domain.model;
+package com.example.backend_Habit_App.domain.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-import java.util.List;
+public class EdificioDTO {
 
-@Entity
-@Table(name = "edificio")
-public class Edificio {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "edificio_id")
     protected Long id;
-    @Column(name="nombre")
     private String nombre;
-    @Column(name = "direccion")
     private String direccion;
-    @Column(name="valorAdministracion", nullable = false)
     private double valorAdministracion;
-    @Column(name="numeroApartamento", nullable = false)
     private Integer numeroApartamento;
-    @Column(name="pisos")
     private Integer pisos;
 
-    @OneToMany(mappedBy = "edificio")
-    @JsonManagedReference
-    private List<Apartamento> apartamentos;
+    public EdificioDTO() {
+    }
 
-    public Edificio(){}
-
-    public Edificio(Long id, String nombre, String direccion, double valorAdministracion, Integer numeroApartamento, Integer pisos, List<Apartamento> apartamentos) {
+    public EdificioDTO(Long id, String nombre, String direccion, double valorAdministracion, Integer numeroApartamento, Integer pisos) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.valorAdministracion = valorAdministracion;
         this.numeroApartamento = numeroApartamento;
         this.pisos = pisos;
-        this.apartamentos = apartamentos;
     }
 
     public Long getId() {
@@ -86,13 +72,5 @@ public class Edificio {
 
     public void setPisos(Integer pisos) {
         this.pisos = pisos;
-    }
-
-    public List<Apartamento> getApartamentos() {
-        return apartamentos;
-    }
-
-    public void setApartamentos(List<Apartamento> apartamentos) {
-        this.apartamentos = apartamentos;
     }
 }

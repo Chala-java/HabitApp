@@ -1,47 +1,27 @@
-package com.example.backend_Habit_App.domain.model;
+package com.example.backend_Habit_App.domain.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import jakarta.persistence.*;
+import com.example.backend_Habit_App.domain.model.ApartamentoEnum;
+public class ApartamentoDTO {
 
-@Entity
-@Table(name = "apartamento")
-public class Apartamento {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "apartamento_id")
     protected Long id;
-
-    @Column(name = "numero", nullable = false)
     private Integer numeroApartamento;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "estado", nullable = false)
     private ApartamentoEnum estadoApartamento;
     private Integer piso;
-    @Column(name="valor_renta", nullable = false)
     private  double valorRenta;
-    @Column(name = "descripcion", length = 500, nullable = true)
     private String descripcion;
 
-    @OneToOne(mappedBy = "apartamento")
-    private Contrato contrato;
+    protected Long idEdificio;
 
-    @ManyToOne
-    @JoinColumn(name="fk_edificio", referencedColumnName = "edificio_id")
-    @JsonBackReference Edificio edificio;
+    public ApartamentoDTO(){}
 
-    public Apartamento() {
-    }
-
-    public Apartamento(Long id, Integer numeroApartamento, ApartamentoEnum estadoApartamento, Integer piso, double valorRenta, String descripcion, Contrato contrato, Edificio edificio) {
+    public ApartamentoDTO(Long id, Integer numeroApartamento, ApartamentoEnum estadoApartamento, Integer piso, double valorRenta, String descripcion, Long idEdificio) {
         this.id = id;
         this.numeroApartamento = numeroApartamento;
         this.estadoApartamento = estadoApartamento;
         this.piso = piso;
         this.valorRenta = valorRenta;
         this.descripcion = descripcion;
-        this.contrato = contrato;
-        this.edificio = edificio;
+        this.idEdificio = idEdificio;
     }
 
     public Long getId() {
@@ -92,19 +72,11 @@ public class Apartamento {
         this.descripcion = descripcion;
     }
 
-    public Contrato getContrato() {
-        return contrato;
+    public Long getIdEdificio() {
+        return idEdificio;
     }
 
-    public void setContrato(Contrato contrato) {
-        this.contrato = contrato;
-    }
-
-    public Edificio getEdificio() {
-        return edificio;
-    }
-
-    public void setEdificio(Edificio edificio) {
-        this.edificio = edificio;
+    public void setIdEdificio(Long idEdificio) {
+        this.idEdificio = idEdificio;
     }
 }
