@@ -11,8 +11,10 @@ public class Administrador extends UsuarioBase{
 
     public Administrador(){}
 
-    public Administrador(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, String contrasena) {
-        super(id, nombre, apellido, correo, telefono, cedula, contrasena);
+    public Administrador(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, RolEnum rol, String contrasena) {
+        super(id, nombre, apellido, correo, telefono, cedula, rol, contrasena);
     }
+
+
 
 }

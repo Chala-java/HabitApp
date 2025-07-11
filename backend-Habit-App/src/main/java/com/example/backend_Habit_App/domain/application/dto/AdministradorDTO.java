@@ -1,5 +1,7 @@
 package com.example.backend_Habit_App.domain.application.dto;
 
+import com.example.backend_Habit_App.domain.model.RolEnum;
+
 public class AdministradorDTO {
 
     private Long id;
@@ -8,19 +10,20 @@ public class AdministradorDTO {
     private String correo;
     private String telefono;
     private Long cedula;
+    private RolEnum rol;
 
     public AdministradorDTO() {
     }
 
-    public AdministradorDTO(Long id, String nombre, String apellido, String correo, String telefono, Long cedula) {
+    public AdministradorDTO(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, RolEnum rol) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.telefono = telefono;
         this.cedula = cedula;
+        this.rol = rol;
     }
-
 
     public Long getId() {
         return id;
@@ -68,5 +71,13 @@ public class AdministradorDTO {
 
     public void setCedula(Long cedula) {
         this.cedula = cedula;
+    }
+
+    public RolEnum getRol() {
+        return rol;
+    }
+
+    public void setRol(RolEnum rol) {
+        this.rol = rol;
     }
 }

@@ -2,36 +2,42 @@ package com.example.backend_Habit_App.domain.model;
 
 import jakarta.persistence.*;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo_usuario")
+
 public abstract class UsuarioBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    protected  Long id;
+    protected Long id;
     @Column(name = "nombre", length = 100, nullable = false)
     private String nombre;
-    @Column(name = "apellido", length = 100, nullable = false)
+    @Column(name = "apellido", length = 100, nullable = true)
     private String apellido;
 
     protected String correo;
-    @Column(name = "telefono", length = 20, nullable = false)
+    @Column(name = "telefono", length = 20, nullable = true)
     private String telefono;
-    @Column(name = "cedula",nullable = false)
+    @Column(name = "cedula", nullable = true)
     private Long cedula;
-    @Column(name = "contrasena", length = 100, nullable = false)
+    @Column(name = "rol", nullable = false)
+    private RolEnum rol;
+    @Column(name = "contrasena", length = 100, nullable = true)
     protected String contrasena;
 
     public  UsuarioBase(){
 
     }
 
-    public UsuarioBase(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, String contrasena) {
+    public UsuarioBase(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, RolEnum rol, String contrasena) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.telefono = telefono;
         this.cedula = cedula;
+        this.rol = rol;
         this.contrasena = contrasena;
     }
 
@@ -81,6 +87,14 @@ public abstract class UsuarioBase {
 
     public void setCedula(Long cedula) {
         this.cedula = cedula;
+    }
+
+    public RolEnum getRol() {
+        return rol;
+    }
+
+    public void setRol(RolEnum rol) {
+        this.rol = rol;
     }
 
     public String getContrasena() {

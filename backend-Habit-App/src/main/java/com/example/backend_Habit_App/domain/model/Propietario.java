@@ -22,15 +22,11 @@ public class Propietario extends UsuarioBase {
 
     }
 
-    public Propietario(long numero_cuenta, String metodo_pago) {
+    public Propietario(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, RolEnum rol, String contrasena, long numero_cuenta, String metodo_pago, Contrato contrato) {
+        super(id, nombre, apellido, correo, telefono, cedula, rol, contrasena);
         this.numero_cuenta = numero_cuenta;
         this.metodo_pago = metodo_pago;
-    }
-
-    public Propietario(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, String contrasena, long numero_cuenta, String metodo_pago) {
-        super(id, nombre, apellido, correo, telefono, cedula, contrasena);
-        this.numero_cuenta = numero_cuenta;
-        this.metodo_pago = metodo_pago;
+        this.contrato = contrato;
     }
 
     public long getNumero_cuenta() {
@@ -47,5 +43,13 @@ public class Propietario extends UsuarioBase {
 
     public void setMetodo_pago(String metodo_pago) {
         this.metodo_pago = metodo_pago;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }

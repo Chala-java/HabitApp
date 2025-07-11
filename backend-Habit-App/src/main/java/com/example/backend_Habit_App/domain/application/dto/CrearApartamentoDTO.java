@@ -23,5 +23,51 @@ public class CrearApartamentoDTO {
         this.idEdificio = idEdificio;
     }
 
+    public Integer getNumeroApartamento() {
+        return numeroApartamento;
+    }
 
+    public void setNumeroApartamento(Integer numeroApartamento) {
+        this.numeroApartamento = numeroApartamento;
+    }
+
+    public ApartamentoEnum getEstadoApartamento() {
+        return estadoApartamento;
+    }
+
+    public void setEstadoApartamento(ApartamentoEnum estadoApartamento) {
+        this.estadoApartamento = estadoApartamento;
+    }
+
+    public Integer getPiso() {
+        return piso;
+    }
+
+    public void setPiso(Integer piso) {
+        this.piso = piso;
+    }
+
+    public double getValorRenta() {
+        return valorRenta;
+    }
+
+    public void setValorRenta(double valorRenta) {
+        this.valorRenta = valorRenta;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Long getIdEdificio() {
+        return idEdificio;
+    }
+
+    public void setIdEdificio(Long idEdificio) {
+        this.idEdificio = idEdificio;
+    }
 }
