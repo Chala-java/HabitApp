@@ -2,6 +2,7 @@ package com.example.backend_Habit_App.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,20 +15,18 @@ public class Propietario extends UsuarioBase {
     @Column(name = "metodo_pago", length = 20, nullable = false)
     private String metodo_pago;
 
+    @OneToOne(mappedBy = "propietario")
+    private Contrato contrato;
 
     public Propietario(){
 
     }
 
-    public Propietario(long numero_cuenta, String metodo_pago) {
+    public Propietario(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, RolEnum rol, String contrasena, long numero_cuenta, String metodo_pago, Contrato contrato) {
+        super(id, nombre, apellido, correo, telefono, cedula, rol, contrasena);
         this.numero_cuenta = numero_cuenta;
         this.metodo_pago = metodo_pago;
-    }
-
-    public Propietario(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, String contrasena, long numero_cuenta, String metodo_pago) {
-        super(id, nombre, apellido, correo, telefono, cedula, contrasena);
-        this.numero_cuenta = numero_cuenta;
-        this.metodo_pago = metodo_pago;
+        this.contrato = contrato;
     }
 
     public long getNumero_cuenta() {
@@ -44,5 +43,13 @@ public class Propietario extends UsuarioBase {
 
     public void setMetodo_pago(String metodo_pago) {
         this.metodo_pago = metodo_pago;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }

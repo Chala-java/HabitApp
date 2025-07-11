@@ -2,6 +2,7 @@ package com.example.backend_Habit_App.domain.application.mapper;
 
 import com.example.backend_Habit_App.domain.application.dto.RegistroPropietarioDTO;
 import com.example.backend_Habit_App.domain.model.Propietario;
+import com.example.backend_Habit_App.domain.model.RolEnum;
 
 public class RegistroPropietarioMapper {
 
@@ -14,9 +15,11 @@ public class RegistroPropietarioMapper {
                 dto.getApellido(),
                 dto.getTelefono(),
                 dto.getCedula(),
+                RolEnum.PROPIETARIO,
                 dto.getContrasena(),
                 dto.getNumero_cuenta(),
-                dto.getMetodo_pago()
+                dto.getMetodo_pago(),
+                null
         );
     }
 }

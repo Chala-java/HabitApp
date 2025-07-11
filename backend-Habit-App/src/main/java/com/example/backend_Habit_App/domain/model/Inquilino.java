@@ -8,11 +8,28 @@ import java.security.PublicKey;
 @Table(name = "inquilino")
 public class Inquilino extends UsuarioBase {
 
+
+    @OneToOne(mappedBy = "inquilino")
+    private Contrato contrato;
+
     public Inquilino(){
 
     }
 
-    public Inquilino(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, String contrasena) {
-        super(id, nombre, apellido, correo, telefono, cedula, contrasena);
+    public Inquilino(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
+    public Inquilino(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, RolEnum rol, String contrasena, Contrato contrato) {
+        super(id, nombre, apellido, correo, telefono, cedula, rol, contrasena);
+        this.contrato = contrato;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }
