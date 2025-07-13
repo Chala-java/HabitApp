@@ -96,11 +96,13 @@ public class PropietarioController {
             newPropietario.setApellido("NoDefinido");
             newPropietario.setTelefono("0000000");
             newPropietario.setCedula(0L);
+            newPropietario.setNumero_cuenta(222222222);
+            newPropietario.setMetodo_pago("Nequi");
             newPropietario.setRol(RolEnum.PROPIETARIO);
             newPropietario.setContrasena("oauth_sin_password");
             propietarioRepository.save(newPropietario);
 
-            return ResponseEntity.ok("Administrador nuevo Registrado desde Oauth0");
+            return ResponseEntity.ok("Propietario nuevo Registrado desde Oauth0");
 
         }
         return ResponseEntity.ok(optionalPropietario.get());

@@ -12,20 +12,26 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig {
     @Autowired
-    CustomUserDetailsService customUserDetailsService;
+     CustomUserDetailsService customUserDetailsService;
+
+;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/propietario/**").hasAuthority("PROPIETARIO")
-                        .requestMatchers("/api/inquilino/**").hasAuthority("INQUILINO")
-                        .requestMatchers("/api/administrador/**").hasAuthority("ADMINISTRADOR")
+            http
+                    .csrf(csrf -> csrf.disable()) // opcional, pero útil para Postman
+                    .authorizeHttpRequests(authz -> authz
+                            .requestMatchers("/api/administrador/login", "/api/administrador").permitAll()
+                            .requestMatchers("/api/propietarios/login").permitAll() // 👈 ESTO ES CRUCIAL
+                            .requestMatchers("/api/propietarios/**").hasAuthority("PROPIETARIO")
+                            .requestMatchers("/api/inquilino/**").hasAuthority("INQUILINO")
+                            .requestMatchers("/api/administrador/**").hasAuthority("ADMINISTRADOR")
+                            .anyRequest().authenticated()
+                    )
+                    .oauth2Login(oauth2 -> oauth2
+                            .defaultSuccessUrl("/api/propietarios/login", true)
+                    );
+            return http.build();
+        }
 
-                        .anyRequest().authenticated()
-                )
-                .oauth2Login(oauth2 -> oauth2
-                        .defaultSuccessUrl("/api/administrador/login",true)
-                );
-        return http.build();
     }
-}
+
