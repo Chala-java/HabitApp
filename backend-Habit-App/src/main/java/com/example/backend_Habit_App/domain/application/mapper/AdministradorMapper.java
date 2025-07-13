@@ -3,6 +3,7 @@ package com.example.backend_Habit_App.domain.application.mapper;
 import com.example.backend_Habit_App.domain.application.dto.AdministradorDTO;
 import com.example.backend_Habit_App.domain.application.dto.PropietarioDTO;
 import com.example.backend_Habit_App.domain.model.Administrador;
+import com.example.backend_Habit_App.domain.model.RolEnum;
 
 public class AdministradorMapper {
 
@@ -15,7 +16,9 @@ public class AdministradorMapper {
                 dto.getCorreo(),
                 dto.getTelefono(),
                 dto.getCedula(),
+                RolEnum.ADMINISTRADOR,
                 null
+
         );
 
     }
@@ -27,7 +30,8 @@ public class AdministradorMapper {
                 administrador.getApellido(),
                 administrador.getCorreo(),
                 administrador.getTelefono(),
-                administrador.getCedula()
+                administrador.getCedula(),
+                administrador.getRol()
         );
     }
 }

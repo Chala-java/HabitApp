@@ -2,6 +2,7 @@ package com.example.backend_Habit_App.domain.application.mapper;
 
 import com.example.backend_Habit_App.domain.application.dto.PropietarioDTO;
 import com.example.backend_Habit_App.domain.model.Propietario;
+import com.example.backend_Habit_App.domain.model.RolEnum;
 
 public class PropietarioMapper {
     public static Propietario toEntity(PropietarioDTO dto){
@@ -13,9 +14,11 @@ public class PropietarioMapper {
                 dto.getCorreo(),
                 dto.getTelefono(),
                 dto.getCedula(),
+                RolEnum.PROPIETARIO,
                 null,
                 dto.getNumero_cuenta(),
-                dto.getMetodo_pago()
+                dto.getMetodo_pago(),
+                null
         );
 
     }
@@ -28,6 +31,7 @@ public class PropietarioMapper {
                 propietario.getCorreo(),
                 propietario.getTelefono(),
                 propietario.getCedula(),
+                propietario.getRol(),
                 propietario.getNumero_cuenta(),
                 propietario.getMetodo_pago()
                 );

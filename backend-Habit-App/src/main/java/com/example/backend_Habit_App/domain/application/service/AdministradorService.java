@@ -11,7 +11,7 @@ public interface AdministradorService {
 
    AdministradorDTO eliminarAdministrador(Long id)throws Exception;
 
-  AdministradorDTO iniciarSesion(IniciarSesionAdminDTO dto) throws Exception;
+  String iniciarSesion(IniciarSesionAdminDTO dto) throws Exception;
 
 
 

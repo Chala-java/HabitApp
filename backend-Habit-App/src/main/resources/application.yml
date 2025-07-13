@@ -1,0 +1,17 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: WmM2vwBX5JNqJwpvuEX0ZExnv8fGl4Le
+            client-secret: xaz07s5QtAiWlPPMcgMP0TrK23djKb9iEtChlT7Zo84m37UtRN1dQENP0sr-rSxF
+            redirect-uri: "{baseUrl}/login/oauth2/code/auth0"
+            scope:
+             - openid
+             - profile
+             - email
+            provider: auth0
+        provider:
+            auth0:
+             issuer-uri: https://chala-dev.us.auth0.com/

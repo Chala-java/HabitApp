@@ -4,10 +4,13 @@ import com.example.backend_Habit_App.domain.application.dto.AdministradorDTO;
 import com.example.backend_Habit_App.domain.application.dto.IniciarSesionAdminDTO;
 import com.example.backend_Habit_App.domain.application.dto.RegistroAdminDTO;
 import com.example.backend_Habit_App.domain.application.service.AdministradorService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("/api/administrador")
@@ -67,14 +70,25 @@ public class AdministradorController {
         }
     }
 
-    @PostMapping("/login")
-    public ResponseEntity <?> iniciarSesion(@RequestBody IniciarSesionAdminDTO iniciarSesionDTO) throws Exception{
-        try {
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(this.service.iniciarSesion(iniciarSesionDTO));
-        }catch (Exception error){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error.getMessage());
 
+
+
+    @PostMapping("/login")
+    public ResponseEntity<?> iniciarSesion(@RequestBody IniciarSesionAdminDTO dto) {
+        try {
+            String token = service.iniciarSesion(dto);
+            return ResponseEntity.ok(token);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
+
+//    @GetMapping("/bienvenido")
+//    public String home() {
+//        return "home"; // Este es el nombre de tu plantilla: home.html en templates
+//    }
+//
+
+
 }

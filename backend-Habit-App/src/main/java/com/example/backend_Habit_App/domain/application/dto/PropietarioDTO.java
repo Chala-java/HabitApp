@@ -1,26 +1,31 @@
 package com.example.backend_Habit_App.domain.application.dto;
 
 
+import com.example.backend_Habit_App.domain.model.RolEnum;
+
 public class PropietarioDTO {
-    private  Long id;
+    private Long id;
     private String nombre;
     private String apellido;
     private String correo;
     private String telefono;
     private Long cedula;
+
+    private RolEnum rol;
     private long numero_cuenta;
     private String metodo_pago;
 
-    public PropietarioDTO(){
+    public PropietarioDTO() {
     }
 
-    public PropietarioDTO(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, long numero_cuenta, String metodo_pago) {
+    public PropietarioDTO(Long id, String nombre, String apellido, String correo, String telefono, Long cedula, RolEnum rol, long numero_cuenta, String metodo_pago) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.telefono = telefono;
         this.cedula = cedula;
+        this.rol = rol;
         this.numero_cuenta = numero_cuenta;
         this.metodo_pago = metodo_pago;
     }
@@ -71,6 +76,14 @@ public class PropietarioDTO {
 
     public void setCedula(Long cedula) {
         this.cedula = cedula;
+    }
+
+    public RolEnum getRol() {
+        return rol;
+    }
+
+    public void setRol(RolEnum rol) {
+        this.rol = rol;
     }
 
     public long getNumero_cuenta() {

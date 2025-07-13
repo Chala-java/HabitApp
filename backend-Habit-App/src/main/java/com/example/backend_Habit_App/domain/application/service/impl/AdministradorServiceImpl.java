@@ -6,6 +6,8 @@ import com.example.backend_Habit_App.domain.application.mapper.RegistroAdminMapp
 import com.example.backend_Habit_App.domain.application.service.AdministradorService;
 import com.example.backend_Habit_App.domain.infrastructure.repository.AdministradorRepository;
 import com.example.backend_Habit_App.domain.model.Administrador;
+import com.example.backend_Habit_App.domain.model.RolEnum;
+import com.example.backend_Habit_App.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,10 @@ import java.util.Optional;
 public class AdministradorServiceImpl implements AdministradorService {
     @Autowired
     AdministradorRepository repository;
+
+    @Autowired
+    JwtUtil jwtUtil;
+
     public AdministradorDTO guardarAdministrador(RegistroAdminDTO dto) throws Exception{
         try {
             Administrador entidad = RegistroAdminMapper.toEntity(dto);
@@ -74,13 +80,17 @@ public class AdministradorServiceImpl implements AdministradorService {
         }
 
 
-    public AdministradorDTO iniciarSesion(IniciarSesionAdminDTO dto) throws Exception {
+    public String iniciarSesion(IniciarSesionAdminDTO dto) throws Exception {
         Optional<Administrador> resultado = repository.findByCorreo(dto.getCorreo());
 
         if (resultado.isPresent()) {
             Administrador admin = resultado.get();
+
             if (admin.getContrasena().equals(dto.getContrasena())) {
-                return AdministradorMapper.toDTO(admin);
+
+                // Aquí generas el token
+                return jwtUtil.generarToken(admin.getCorreo(), RolEnum.ADMINISTRADOR.name());
+
             } else {
                 throw new Exception("Contraseña incorrecta");
             }
